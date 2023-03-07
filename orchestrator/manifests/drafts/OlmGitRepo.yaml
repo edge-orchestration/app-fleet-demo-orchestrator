@@ -1,0 +1,16 @@
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: olm-operator
+  namespace: edge-clusters
+spec:
+  paths:
+    - deploy/chart
+  repo: "https://github.com/operator-framework/operator-lifecycle-manager"
+  revision: v0.23.1
+  targets:
+    - name: manufacturing-edge-clusters
+      clusterSelector:
+        matchLabels:
+          industry: manufacturing
